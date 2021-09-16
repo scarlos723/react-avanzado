@@ -2,11 +2,11 @@ import React from 'react'
 import { PhotoCard } from '../PhotoCard'
 import { List } from './styles'
 
-export const ListOfPhotoCards = () => {
+export const ListOfPhotoCardsComponent = ({ data: { photos = [] } } = {}) => { // it has a objetc prop.  in props.data.photos is the info photos
   return (
     <List>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
-        <PhotoCard key={item} />
+      {photos.map(item => (
+        <PhotoCard key={item.id} id={item.id} {...item} />
       ))}
     </List>
   )
